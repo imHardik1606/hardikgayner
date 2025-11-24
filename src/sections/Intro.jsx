@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 
 export default function Intro() {
-  // Function to handle smooth scrolling
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -11,25 +10,23 @@ export default function Intro() {
     }
   };
 
-  // Function to handle resume download
   const downloadResume = () => {
     const resumeUrl = "/resume/Hardik-Gayner-Resume.pdf";
 
-    // Create a temporary anchor element to trigger download
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "Hardik-Gayner-Resume.pdf"; // Name of the downloaded file
+    link.download = "Hardik-Gayner-Resume.pdf"; 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <section className="min-h-screen w-full bg-background flex items-center justify-center px-4 py-8 overflow-hidden">
+    <section className="min-h-screen w-full bg-background flex items-center justify-center px-4 py-3s overflow-hidden">
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Image Section - Comes first on mobile */}
         <div className="lg:hidden flex justify-center order-1 mb-8">
-          <div className="w-64 h-64 rounded-full bg-gradient-to-br from-primary to-primary-hover p-2 shadow-xl">
+          <div className="w-64 h-64 rounded-full bg-linear-to-br from-primary to-primary-hover p-2 shadow-xl">
             <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
               <div className="w-full h-full bg-secondary/20 flex items-center justify-center">
                 <Image
@@ -157,7 +154,7 @@ export default function Intro() {
 
         {/* Image Section - Right side on desktop */}
         <div className="hidden lg:flex flex-1 justify-center lg:justify-end order-1 lg:order-2">
-          <div className="w-96 h-96 rounded-full bg-gradient-to-br from-primary to-primary-hover p-3 shadow-2xl">
+          <div className="w-96 h-96 rounded-full bg-linear-to-br from-primary to-primary-hover p-3 shadow-2xl">
             <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
               <div className="w-full h-full bg-secondary/20 flex items-center justify-center">
                 <Image
