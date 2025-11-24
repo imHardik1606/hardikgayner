@@ -10,12 +10,13 @@ export default function Intro() {
     }
   };
 
+  // Function to handle resume download
   const downloadResume = () => {
     const resumeUrl = "/resume/Hardik-Gayner-Resume.pdf";
-
+    // Create a temporary anchor element to trigger download
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "Hardik-Gayner-Resume.pdf"; 
+    link.download = "Hardik-Gayner-Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -136,7 +137,7 @@ export default function Intro() {
               {/* Download Resume Button - Downloads resume PDF */}
               <button
                 onClick={downloadResume}
-                className="border-2 border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary hover:text-white transition-all duration-300 w-full sm:w-auto min-w-[140px] text-center cursor-pointer"
+                className="border-2 border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary-hover hover:text-white transition-all duration-300 w-full sm:w-auto min-w-[140px] text-center cursor-pointer"
               >
                 Download Resume
               </button>
