@@ -3,7 +3,7 @@ import Intro from "@/sections/Intro";
 import NavBar from "@/sections/NavBar";
 import Project from "@/sections/Project";
 import Skills from "@/sections/Skills";
-import Socials from "@/sections/Socials";
+import ContactMe from "@/sections/ContactMe";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
     <Education />
     <Project />
     <Skills />
-    <Socials />
+    <ContactMe />
     </>
   );
 }
