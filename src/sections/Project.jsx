@@ -1,6 +1,13 @@
+"use client";
 import React from "react";
 import { projects } from "@/constants/projects";
-import ProjectCard from "@/components/ProjectCard";
+// import ProjectCard from "@/components/ProjectCard";
+import dynamic from "next/dynamic";
+
+const ProjectCard = dynamic(() => import("../components/ProjectCard"), {
+  ssr: false,
+  loading: () => <p>Loading Projects...</p>,
+})
 
 export default function Project() {
   return (

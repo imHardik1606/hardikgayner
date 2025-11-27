@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { sendEmail } from "@/actions/sendEmail";
 import toast, { Toaster } from "react-hot-toast";
 
+// const isClient = typeof window !== "undefined";
+
 /* ---------- Variants ---------- */
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -65,7 +67,7 @@ function TextArea({ label, name, placeholder, value, onChange, required }) {
         placeholder={placeholder}
         required={required}
         rows={6}
-        className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-900 placement:font-sans
+        className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-900 placeholder:font-sans
              border border-zinc-300 dark:border-zinc-700
              focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition resize-none"
       />
@@ -92,6 +94,7 @@ function SubmitButton({ loading, success }) {
 
 /* ---------- Custom toast renderer (animated) ---------- */
 function CustomToast({ t, type = "info", title, message }) {
+  // if(!isClient) return null;
   const bgClass =
     type === "success"
       ? "bg-green-500"
@@ -280,6 +283,8 @@ export default function ContactMe() {
           variants={containerVariants}
         >
           {/* Global Toaster placed fixed to viewport (outside the card) */}
+          {/* {!isClient && */}
+
           <Toaster
             position="top-center"
             reverseOrder={false}
@@ -297,7 +302,8 @@ export default function ContactMe() {
                 boxShadow: "0 8px 30px rgba(2,6,23,0.35)",
               },
             }}
-          />
+          /> 
+          {/* } */}
 
           <motion.h2
           className="text-3xl sm:text-4xl lg:text-5xl text-primary 
