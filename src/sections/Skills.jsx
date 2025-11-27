@@ -66,13 +66,13 @@ export default function Skills() {
         {skills.map((category) => (
           <div
             key={category.id}
-            className="bg-white rounded-2xl p-8 max-w-screen-2xl mx-auto border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300"
+            className="bg-white rounded-2xl p-8 max-w-screen-2xl mx-auto border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-center items-center"
           >
             <h2 className="text-3xl font-semibold font-sans mb-8 text-center text-gray-800 tracking-tight">
               {category.title}
             </h2>
 
-            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 place-items-center">
+            <div className="flex flex-wrap justify-center gap-4">
               {category.skills.map((skill) => (
                 <div
                   key={skill.name}
