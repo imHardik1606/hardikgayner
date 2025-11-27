@@ -6,7 +6,7 @@ export default function Skills() {
 
   return (
     <section className="min-h-screen w-full bg-background items-center justify-center px-4 py-8 overflow-hidden">
-      <div className="text-primary underline text-5xl text-center font-extrabold p-4 underline-offset-4 decoration-primary/40">
+      <div className="text-primary underline text-5xl text-center font-extrabold p-4 underline-offset-4 decoration-primary/40" id="skills">
         My Skills
       </div>
       <div className="space-y-6 mt-6">

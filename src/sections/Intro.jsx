@@ -23,7 +23,7 @@ export default function Intro() {
   };
 
   return (
-    <section className="min-h-screen w-full bg-background flex items-center justify-center px-4 py-3s overflow-hidden">
+    <section className="min-h-screen w-full bg-background flex items-center justify-center px-4 pb-3 overflow-hidden" id="home">
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Image Section - Comes first on mobile */}
         <div className="lg:hidden flex justify-center order-1 mb-8">
