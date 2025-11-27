@@ -18,8 +18,13 @@ export const metadata = {
   title: "Hardik Gayner - Portfolio",
   description:
     "Portfolio of Hardik Gayner — Full Stack Developer skilled in Java, Node.js, Express, MongoDB, and Data Structures & Algorithms. Passionate about building scalable backend systems, modern web applications, and solving real-world problems through clean and efficient code.",
+  icons: {
+    icon: "/favicon.ico",
+  },
   keywords: [
     "Hardik Gayner",
+    "AI Enginner",
+    "ML Engineer",
     "Full Stack Developer",
     "Software Engineer",
     "Backend Developer",
