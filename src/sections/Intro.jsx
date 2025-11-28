@@ -55,14 +55,14 @@ export default function Intro() {
             <h1 className="text-4xl lg:text-6xl font-extrabold text-text leading-tight">
               I'm{" "}
               <span className="text-primary underline underline-offset-4 decoration-primary/40">
-                Hardik Gayner
+                <strong>Hardik Gayner</strong>
               </span>
             </h1>
 
             {/* Title */}
             <div className="inline-block mt-1">
               <h2 className="inline-block text-2xl lg:text-2xl font-medium text-primary bg-primary/10 border border-primary/20 px-3 py-1 mb-3 rounded-full">
-                Software / Backend Developer
+                <strong>Software / Backend Developer</strong>
               </h2>
             </div>
 
