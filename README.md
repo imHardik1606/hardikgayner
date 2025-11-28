@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hardik Gayner - Portfolio
 
-## Getting Started
+![Portfolio Preview](https://img.shields.io/badge/Portfolio-Hardik_Gayner-blue) 
+![Software / Backend Developer](https://img.shields.io/badge/Software/Backend-Developer-green) 
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-First, run the development server:
+## 🚀 About Me
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I'm **Hardik Gayner**, a passionate Full Stack Developer and Software Engineer with expertise in building scalable backend systems and modern web applications. My focus lies in creating efficient, clean-code solutions to solve real-world problems through technology.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💻 Technical Skills
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Backend Technologies
+- **Java** - Strong foundation in Java development
+- **Node.js** - Runtime environment for server-side applications
+- **Express.js** - Web application framework for Node.js
+- **MongoDB** - NoSQL database for modern applications
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Frontend Technologies
+- **React** - Modern UI library for interactive interfaces
+- **Next.js** - Full-stack React framework for production
 
-## Learn More
+### Core Competencies
+- **Data Structures & Algorithms** - Strong problem-solving skills
+- **Scalable Architecture** - Building robust and scalable systems
+- **Backend Development** - Specialized in server-side programming
+- **Web Development** - Full-stack application development
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 What I Do
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 🔧 **Backend Systems** - Develop scalable and efficient server-side solutions
+- 🌐 **Web Applications** - Build modern, responsive full-stack applications
+- 💡 **Problem Solving** - Apply DSA knowledge to solve complex challenges
+- 🚀 **Clean Code** - Write maintainable and efficient code
+- 📈 **Real-world Solutions** - Create practical applications that address actual needs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Portfolio Sections
 
-## Deploy on Vercel
+The portfolio showcases:
+- **Projects** - My technical work and implementations
+- **Skills** - Technical competencies and expertise
+- **Experience** - Professional journey and accomplishments
+- **Contact** - Ways to connect and collaborate
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠 Tech Stack Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This portfolio is built using:
+- **Next.js** - React framework for production
+- **Modern UI** - Clean and professional design
+- **Responsive Design** - Optimized for all devices
+- **SEO Optimized** - Built with best practices for search visibility
+
+## 📫 Connect With Me
+
+Feel free to reach out for:
+- 💼 Professional opportunities
+- 🤝 Collaboration on interesting projects
+- 💬 Technical discussions
+- 🎯 Freelance work
+
+## 🔍 SEO & Metadata
+
+This portfolio is optimized with proper metadata, OpenGraph tags, and structured for search engine visibility, ensuring that my work reaches the right audience.
+
+---
+
+*Built with passion for technology and problem-solving* ✨
+
+---
+
+**Note**: This README is based on the provided metadata. For the most up-to-date information and live projects, please visit the actual portfolio website.

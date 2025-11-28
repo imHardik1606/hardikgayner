@@ -43,12 +43,12 @@ export const metadata = {
   authors: [{ name: "Hardik Gayner" }],
   creator: "Hardik Gayner",
   publisher: "Hardik Gayner",
-  metadataBase: new URL("https://your-domain.com"), // update later when deployed
+  metadataBase: new URL("https://hardikgayner.vercel.app"),
   openGraph: {
-    title: "Hardik Gayner | Full Stack Developer & Software Engineer",
+    title: "Hardik Gayner | Software / Backend Developer",
     description:
       "Explore the work, projects, and skills of Hardik Gayner — a Full Stack Developer focused on backend development, scalable architecture, and solving real-world technical challenges.",
-    url: "https://your-domain.com",
+    // url: "https://your-domain.com",
     siteName: "Hardik Gayner Portfolio",
     locale: "en_US",
     type: "website",
