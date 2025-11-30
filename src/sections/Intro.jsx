@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import SplitText from "@/animated-components/SplitText";
+import TextType from "@/animated-components/TextType";
+import RotatingText from "@/animated-components/RotatingText";
 
 export default function Intro() {
   const scrollToSection = (sectionId) => {
@@ -23,11 +26,14 @@ export default function Intro() {
   };
 
   return (
-    <section className="min-h-screen w-full bg-background flex items-center justify-center px-4 pb-3 overflow-hidden" id="home">
+    <section
+      className="min-h-screen w-full bg-background flex items-center justify-center px-4 pb-3 overflow-hidden"
+      id="home"
+    >
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Image Section - Comes first on mobile */}
-        <div className="lg:hidden flex justify-center order-1 mb-8">
-          <div className="w-64 h-64 rounded-full bg-linear-to-br from-primary to-primary-hover p-2 shadow-xl">
+        <div className="lg:hidden flex justify-center order-1 mb-8 mt-7">
+          <div className="w-64 h-64 rounded-full bg-linear-to-br from-base to-base-hover p-2 shadow-xl">
             <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
               <div className="w-full h-full bg-secondary/20 flex items-center justify-center">
                 <Image
@@ -47,22 +53,70 @@ export default function Intro() {
         <div className="flex-1 max-w-2xl order-2 lg:order-1">
           <div className="text-center lg:text-left space-y-4 animate-in fade-in slide-in-from-bottom-4">
             {/* Greeting */}
-            <p className="text-secondary text-4xl lg:text-3xl font-light tracking-wide">
-              👋 Hey, welcome!
-            </p>
+            {/* <p className="text-base text-4xl lg:text-3xl font-semibold tracking-wide"> */}
+            {/* 👋 Hey, welcome! */}
+            <SplitText
+              text="👋 Hey, welcome!"
+              className="text-base font-mono text-center text-4xl lg:text-3xl sm:text-xl"
+              delay={100}
+              duration={0.6}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              textAlign="center"
+            />
+            {/* </p> */}
 
             {/* Name */}
             <h1 className="text-4xl lg:text-6xl font-extrabold text-text leading-tight">
               I'm{" "}
-              <span className="text-primary underline underline-offset-4 decoration-primary/40">
-                <strong>Hardik Gayner</strong>
+              <span className="text-base underline underline-offset-4 decoration-base/40">
+                <strong>
+                  {/* Hardik Gayner */}
+                  <TextType
+                    text={"Hardik Gayner"}
+                    typingSpeed={80}
+                    pauseDuration={5000}
+                    showCursor={true}
+                    cursorCharacter="|"
+                    // loop={false}
+                  />
+                </strong>
               </span>
             </h1>
 
             {/* Title */}
-            <div className="inline-block mt-1">
-              <h2 className="inline-block text-2xl lg:text-2xl font-medium text-primary bg-primary/10 border border-primary/20 px-3 py-1 mb-3 rounded-full">
-                <strong>Software / Backend Developer</strong>
+            <div className="inline-block mt-1 justify-center lg:justify-start">
+              <h2 className="inline-block text-2xl lg:text-4xl font-stretch-50% text-base border border-base/20 px-3 py-1 mb-3 rounded-full bg-base-hover/40">
+                <strong className="flex items-center gap-3">
+                  {/* Option A: keep container width stable with Tailwind min-w (recommended) */}
+                  <span className="inline-flex items-center">
+                    <RotatingText
+                      texts={["Software", "Backend", "Full-Stack"]}
+                      rotationInterval={4000} // ms between changes
+                      // keep these classes to match your styling
+                      mainClassName="px-1 sm:px-2 md:px-3 text-base overflow-hidden py-0.5 sm:py-1 md:py-2 rounded-lg inline-flex items-center"
+                      splitLevelClassName="overflow-hidden sm:pb-1 md:pb-1"
+                      staggerFrom={"first"}
+                      staggerDuration={0.025}
+                      initial={{ y: "100%" }}
+                      animate={{ y: 0 }}
+                      exit={{ y: "-120%" }}
+                      transition={{
+                        type: "spring",
+                        damping: 30,
+                        stiffness: 400,
+                      }}
+                      // ensure stable width: min-w large enough for the longest word
+                      containerClassName="min-w-[8rem]"
+                    />
+                  </span>
+
+                  <span className="text-md pb-0.5 text-black">Developer</span>
+                </strong>
               </h2>
             </div>
 
@@ -120,32 +174,42 @@ export default function Intro() {
 
             {/* Description */}
             <p className="text-lg lg:text-xl text-text/90 leading-relaxed max-w-2xl mt-4 animate-in fade-in slide-in-from-bottom-3">
-              I care about scalable systems, clean logic, and writing code that
-              lasts — not just code that works.
+              <div className="flex justify-center my-6">
+                <p className="lg:hidden font-sans text-center text-base sm:text-lg font-semibold">
+                  I care about scalable systems, clean logic, and writing code that
+              lasts not just code that works.
+                </p>
+                <img
+                  className="rounded-xl shadow-lg hidden"
+                  src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=catppuccin_latte"
+                  alt="Developer Quote"
+                />
+              </div>
             </p>
 
             {/* Buttons with functionality */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center sm:items-stretch">
-              {/* View Projects Button - Scrolls to projects section */}
+            <div className="grid grid-cols-2 gap-3 justify-center items-stretch w-full sm:flex sm:flex-row sm:justify-center lg:justify-start">
+              {/* View Projects Button */}
               <button
                 onClick={() => scrollToSection("projects")}
-                className="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-hover transition-colors duration-300 shadow-lg w-full sm:w-auto min-w-[140px] text-center cursor-pointer"
+                className="bg-base text-white px-6 py-3 rounded-lg font-medium hover:bg-base-hover transition-colors duration-300 shadow-lg w-full text-center cursor-pointer sm:w-44 md:w-48 lg:w-48"
               >
                 View Projects
               </button>
 
-              {/* Download Resume Button - Downloads resume PDF */}
+              {/* Download Resume Button */}
               <button
                 onClick={downloadResume}
-                className="border-2 border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary-hover hover:text-white transition-all duration-300 w-full sm:w-auto min-w-[140px] text-center cursor-pointer"
+                className="border-2 border-base text-base px-6 py-3 rounded-lg font-medium hover:bg-base-hover hover:text-white transition-all duration-300 w-full text-center cursor-pointer sm:w-44 md:w-48 lg:w-48"
               >
                 Download Resume
               </button>
 
-              {/* Contact Me Button - Scrolls to contact section */}
+              {/* Contact Me Button */}
               <button
                 onClick={() => scrollToSection("contact")}
-                className="border-2 border-secondary text-secondary px-6 py-3 rounded-lg font-medium hover:bg-secondary hover:text-white transition-all duration-300 w-full sm:w-auto min-w-[140px] text-center cursor-pointer"
+                className="border-2 border-secondary bg-base text-secondary px-6 py-3 rounded-lg font-medium 
+                hover:bg-secondary hover:text-black transition-all duration-300 w-full text-center cursor-pointer col-span-2 sm:col-span-1 sm:w-44 md:w-48 lg:w-48"
               >
                 Contact Me
               </button>
@@ -155,7 +219,7 @@ export default function Intro() {
 
         {/* Image Section - Right side on desktop */}
         <div className="hidden lg:flex flex-1 justify-center lg:justify-end order-1 lg:order-2">
-          <div className="w-96 h-96 rounded-full bg-linear-to-br from-primary to-primary-hover p-3 shadow-2xl">
+          <div className="w-96 h-96 rounded-full bg-linear-to-br from-base to-base-hover p-3 shadow-2xl">
             <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
               <div className="w-full h-full bg-secondary/20 flex items-center justify-center">
                 <Image

@@ -1,28 +1,28 @@
-import React from "react";
-
 export default function EducationCard({ year, institution, degree, grade }) {
   return (
     <article
-      className="max-w-3xl mx-auto my-10 flex gap-4 p-5 rounded-2xl bg-white shadow-sm font-sans border-blue-300 border-4"
+      className="max-w-3xl mx-auto my-6 p-6 rounded-2xl bg-white shadow-lg border-blue-300 border-2 font-sans hover:shadow-xl transition-all duration-300"
       aria-label={`${institution} education card`}
     >
-      {/* Year / Left */}
-      <div className="flex-none w-30 text-center rounded-xl bg-gray-100 flex items-center justify-center border border-gray-100">
-        <span className="text-lg font-semibold text-gray-900">{year}</span>
+      {/* Year Badge */}
+      <div className="mb-4">
+        <span className="inline-block px-4 py-2 bg-primary text-white text-lg font-semibold rounded-full">
+          {year}
+        </span>
       </div>
 
-      {/* Details / Right */}
-      <div className="flex-1 flex flex-col justify-center min-w-0">
-        <h3 className="font-bold text-black text-2xl">
+      {/* Details */}
+      <div className="flex flex-col justify-center min-w-0">
+        <h3 className="font-bold text-black text-xl mb-3">
           {institution}
         </h3>
 
-        <p className="my-3 text-xl font-semibold text-gray-600">{degree}</p>
+        <p className="mb-3 text-lg font-semibold text-gray-600">{degree}</p>
 
         {grade && (
-          <p className="text-xl font-semibold text-primary ">{grade}</p>
+          <p className="text-lg font-semibold text-primary">{grade}</p>
         )}
       </div>
     </article>
   );
-}
+};
