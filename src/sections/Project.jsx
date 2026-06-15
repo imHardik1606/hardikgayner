@@ -13,23 +13,25 @@ export default function Project() {
   return (
     <section
       id="projects"
-      className="min-h-screen w-full bg-background flex items-center justify-center px-4 py-8 overflow-hidden"
+      className="w-full py-20 lg:py-32 bg-background flex flex-col items-center px-6 overflow-hidden"
     >
-      <div>
-      <div className="text-primary underline text-5xl text-center font-extrabold p-4 underline-offset-4 decoration-primary/40 mb-14">
-        My Projects
-      </div>
-      {projects.map((project) => (
-        <ProjectCard
-        key={project.id}
-        title={project.name}
-        description={project.description}
-        imageUrl={project.imageUrl}
-        tags={project.techStack}
-        liveLink={project.live ? project.live : null}
-        githubLink={project.github}
-        />
-      ))}
+      <div className="max-w-7xl mx-auto w-full">
+        <h2 className="text-4xl lg:text-6xl text-primary underline underline-offset-8 decoration-primary/30 text-center font-extrabold mb-24 tracking-tight">
+          My Projects 🚀
+        </h2>
+        <div className="space-y-12 lg:space-y-24">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              title={project.name}
+              description={project.description}
+              imageUrl={project.imageUrl}
+              tags={project.techStack}
+              liveLink={project.live ? project.live : null}
+              githubLink={project.github}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

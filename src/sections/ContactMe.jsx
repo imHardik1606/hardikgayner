@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import { sendEmail } from "@/actions/sendEmail";
 import toast, { Toaster } from "react-hot-toast";
 
-// const isClient = typeof window !== "undefined";
-
 /* ---------- Variants ---------- */
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -47,9 +45,9 @@ function Input({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-900 
-             border border-zinc-300 dark:border-zinc-700 placeholder:font-sans
-             focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition resize-none"
+        className="w-full px-5 py-4 rounded-xl bg-background 
+             border border-border placeholder:text-muted-foreground
+             focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm"
       />
     </motion.label>
   );
@@ -67,9 +65,9 @@ function TextArea({ label, name, placeholder, value, onChange, required }) {
         placeholder={placeholder}
         required={required}
         rows={6}
-        className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-900 placeholder:font-sans
-             border border-zinc-300 dark:border-zinc-700
-             focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition resize-none"
+        className="w-full px-5 py-4 rounded-xl bg-background
+             border border-border placeholder:text-muted-foreground
+             focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm resize-none"
       />
     </motion.label>
   );
@@ -83,21 +81,20 @@ function SubmitButton({ loading, success }) {
       whileTap={{ scale: 0.98 }}
       whileHover={{ scale: 1.02 }}
       disabled={loading}
-      className="mt-4 rounded-full min-w-2 px-3 py-2 bg-linear-to-r from-blue-600 
-                 to-indigo-600 text-white font-medium shadow-lg hover:shadow-xl 
-                 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-60"
+      className="mt-4 rounded-xl px-10 py-4 bg-primary 
+                 text-primary-foreground font-bold shadow-lg shadow-primary/20 hover:opacity-90 
+                 focus:outline-none focus:ring-4 focus:ring-primary/30 disabled:opacity-60 transition-all"
     >
-      {loading ? "Sending..." : success ? "Sent" : "Send Message"}
+      {loading ? "Sending..." : success ? "Message Sent!" : "Send Message"}
     </motion.button>
   );
 }
 
 /* ---------- Custom toast renderer (animated) ---------- */
 function CustomToast({ t, type = "info", title, message }) {
-  // if(!isClient) return null;
   const bgClass =
     type === "success"
-      ? "bg-green-500"
+      ? "bg-green-600"
       : type === "error"
         ? "bg-rose-600"
         : "bg-slate-800";
@@ -272,19 +269,16 @@ export default function ContactMe() {
     <>
       <section
         id="contact"
-        className="relative min-h-screen w-full flex items-center px-4 py-10 justify-center bg-background overflow-hidden"
+        className="relative min-h-screen w-full flex items-center px-6 py-20 lg:py-32 justify-center bg-background overflow-hidden"
       >
         <motion.div
-          className="w-full max-w-3xl bg-white/70 dark:bg-slate-800/80 backdrop-blur-md 
-                     shadow-2xl rounded-2xl p-10"
+          className="w-full max-w-4xl bg-card border border-border/50
+                     shadow-2xl rounded-3xl p-6 sm:p-10 lg:p-16"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
         >
-          {/* Global Toaster placed fixed to viewport (outside the card) */}
-          {/* {!isClient && */}
-
           <Toaster
             position="top-center"
             reverseOrder={false}
@@ -294,28 +288,27 @@ export default function ContactMe() {
             toastOptions={{
               duration: 4000,
               style: {
-                // fallback style for simple toast.* calls
-                background: "rgba(17,24,39,0.95)",
-                color: "#fff",
+                background: "var(--card)",
+                color: "var(--foreground)",
                 borderRadius: "12px",
                 padding: "8px 12px",
-                boxShadow: "0 8px 30px rgba(2,6,23,0.35)",
+                boxShadow: "0 8px 30px rgba(0,0,0,0.2)",
+                border: "1px border var(--border)",
               },
             }}
           /> 
-          {/* } */}
 
           <motion.h2
-          className="text-3xl sm:text-4xl lg:text-5xl text-primary 
-             underline underline-offset-4 decoration-primary/40
-             text-center font-extrabold p-4"
+          className="text-3xl sm:text-5xl lg:text-6xl text-primary 
+             underline underline-offset-8 decoration-primary/30
+             text-center font-extrabold mb-4 tracking-tight"
           variants={itemVariant}
         >
           Contact Me 📬
         </motion.h2>
 
           <motion.p
-            className="mt-2 text-sm sm:text-base text-center text-slate-600 dark:text-slate-300"
+            className="text-base sm:text-lg lg:text-xl text-center text-muted-foreground font-medium mb-8 sm:mb-12"
             variants={itemVariant}
           >
             Have any questions or collaboration ideas? <br /> I’d love to hear
@@ -323,7 +316,7 @@ export default function ContactMe() {
           </motion.p>
 
           <motion.form
-            className="grid grid-cols-1 gap-4 mt-10"
+            className="grid grid-cols-1 gap-6"
             onSubmit={handleSubmit}
           >
             <Input
@@ -355,17 +348,17 @@ export default function ContactMe() {
               onChange={onChange}
             />
 
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 mt-4">
               <SubmitButton loading={loading} success={success} />
               <motion.div
-                className="text-md text-slate-900 font-sans bg-gray-200 dark:text-slate-400 border-2 border-gray-500 rounded-md"
+                className="w-full sm:w-auto text-center sm:text-left bg-secondary border border-border px-6 py-3 rounded-2xl"
                 variants={itemVariant}
               >
-                <strong className="block text-center lg:px-4 md:px-2 sm:px-1">
-                  Response time
+                <strong className="block text-foreground text-[0.6rem] uppercase tracking-widest mb-1">
+                  Average Response
                 </strong>
-                <p className="text-center lg:px-4 md:px-2 sm:px-1">
-                  Usually within 1–2 days
+                <p className="text-muted-foreground font-bold text-sm sm:text-base">
+                  Within 1–2 business days
                 </p>
               </motion.div>
             </div>

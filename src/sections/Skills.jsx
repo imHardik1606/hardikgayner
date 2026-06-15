@@ -5,43 +5,46 @@ import { skills } from "../constants/skills";
 export default function Skills() {
 
   return (
-    <section className="min-h-screen w-full bg-background items-center justify-center px-4 py-8 overflow-hidden">
-      <div className="text-primary underline text-5xl text-center font-extrabold p-4 underline-offset-4 decoration-primary/40" id="skills">
-        My Skills
-      </div>
-      <div className="space-y-6 mt-6">
-        {skills.map((category) => (
-          <div
-            key={category.id}
-            className="bg-white rounded-2xl p-8 max-w-screen-2xl mx-auto border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-center items-center"
-          >
-            <h2 className="text-3xl font-semibold font-sans mb-8 text-center text-gray-800 tracking-tight">
-              {category.title}
-            </h2>
+    <section className="w-full py-20 lg:py-32 bg-background" id="skills">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-4xl lg:text-6xl text-primary underline underline-offset-8 decoration-primary/30 text-center font-extrabold mb-16 tracking-tight">
+          My Skills 🛠️
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-12">
+          {skills.map((category) => (
+            <div
+              key={category.id}
+              className="bg-card rounded-3xl p-6 sm:p-8 border border-border/50 shadow-xl hover:shadow-primary/5 transition-all duration-300 flex flex-col items-center"
+            >
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-foreground tracking-tight border-b-2 border-primary/20 pb-2 w-full text-center">
+                {category.title}
+              </h3>
 
-            <div className="flex flex-wrap justify-center gap-4">
-              {category.skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="flex flex-col items-center group"
-                >
-                  <div className="bg-white rounded-2xl p-4 shadow-md border border-gray-50 group-hover:shadow-md group-hover:scale-105 transition-all duration-300">
-                    <Image
-                      src={skill.icon}
-                      width={56}
-                      height={56}
-                      alt={skill.name}
-                      className="opacity-85 group-hover:opacity-100 transition-opacity duration-300"
-                    />
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="flex flex-col items-center group"
+                  >
+                    <div className="bg-background rounded-2xl p-3 sm:p-4 shadow-sm border border-border group-hover:border-primary group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
+                      <Image
+                        src={skill.icon}
+                        width={40}
+                        height={40}
+                        alt={skill.name}
+                        className="sm:w-12 sm:h-12 opacity-90 group-hover:opacity-100 transition-opacity duration-300 dark:invert-[0.1]"
+                      />
+                    </div>
+                    <span className="font-bold text-muted-foreground mt-2 sm:mt-3 text-center tracking-wide group-hover:text-primary transition-colors duration-300 font-sans text-xs sm:text-sm">
+                      {skill.name}
+                    </span>
                   </div>
-                  <span className="font-medium text-gray-700 mt-4 text-center tracking-wide group-hover:text-gray-900 transition-colors duration-300 font-sans text-lg">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

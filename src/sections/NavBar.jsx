@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useTheme } from "@/context/ThemeContext";
+import { Moon, Sun, Menu, X } from "lucide-react";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const menuItems = ["Home", "Education", "Projects", "Skills", "Contact"];
 
@@ -17,86 +20,62 @@ export default function NavBar() {
     const id = item.toLowerCase();
     const element = document.getElementById(id);
 
-    if(element){
+    if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      const y = 0;
-      element.scrollTo({top: y, behavior: 'smooth'});
     }
 
     setIsMenuOpen(false);
-  }
+  };
 
   return (
-    <nav className="sticky top-1 z-50 px-4 flex items-center justify-center rounded">
-      {/* Mobile Menu Button - Left Side */}
-      <div className="md:hidden absolute left-5 top-3 z-50">
+    <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-fit px-6">
+      <div className="flex items-center gap-6 bg-background/40 backdrop-blur-xl border border-primary/20 p-3 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-300 hover:bg-background/50">
+        {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
-          className="text-base bg-base/10 border border-base/20 p-2 rounded-full hover:bg-base/20 transition-colors duration-200"
+          className="md:hidden p-3.5 rounded-2xl bg-primary/10 text-primary hover:bg-primary/20 transition-all"
           aria-label="Toggle menu"
         >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            {isMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-2">
+          {menuItems.map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              onClick={(e) => handleNavClick(e, item)}
+              className="px-6 py-3 rounded-2xl font-extrabold text-primary hover:bg-primary/10 transition-all tracking-tight"
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+
+        {/* Vertical Divider */}
+        <div className="w-px h-8 bg-border/50 hidden md:block"></div>
+
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="p-3.5 rounded-2xl bg-primary text-primary-foreground hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/30"
+          aria-label="Toggle theme"
+        >
+          {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
         </button>
       </div>
 
-      {/* Desktop Menu Items - Centered but not full width */}
-      <div className="hidden md:flex space-x-6 rounded-4xl items-center bg-background/50 backdrop-blur-xs px-6 py-4 border-2 border-base/20">
-        {menuItems.map((item) => (
-          <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            onClick={(e) => handleNavClick(e, item)}
-            className="text-base bg-base/10 border border-base/20 px-4 py-2 rounded-full hover:bg-base/30 hover:scale-110 hover:shadow-lg hover:shadow-base/30 transform transition-transform duration-300 font-bold font-sans whitespace-nowrap"
-          >
-            {item}
-          </a>
-        ))}
-      </div>
-
-      {/* Mobile Spacer - Maintains layout without text */}
-      {/* <div className="md:hidden flex items-center">
-        <Image
-          src="/assets/menu-logo.png"
-          alt="menu"
-          width={40}
-          height={40}
-          className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
-        />
-      </div> */}
-
-      {/* Mobile Menu Dropdown - Not full width */}
+      {/* Mobile Dropdown */}
       {isMenuOpen && (
-        <div className="absolute top-full left-4 flex justify-center items-center right-4 md:hidden bg-base/2 backdrop-blur-xl border border-base/20 rounded-xl shadow-lg transition-all duration-300">
-          <div className="px-4 py-3 w-40 space-y-3">
+        <div className="absolute top-full mt-6 left-4 right-4 md:hidden animate-in fade-in slide-in-from-top-6 duration-500 ease-out">
+          <div className="bg-card/90 backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-[2.5rem] p-6 flex flex-col gap-3">
             {menuItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 onClick={(e) => handleNavClick(e, item)}
-                className="block text-white font-semibold font-sans border border-base/20 px-4 py-3 rounded-full bg-base/60 hover:bg-base/30 hover:scale-105 hover:shadow-md hover:shadow-base/20 transition-all duration-300 text-center"
-                // onClick={() => setIsMenuOpen(false)}
+                className="px-8 py-5 rounded-3xl text-xl font-black text-foreground hover:bg-primary hover:text-primary-foreground transition-all text-center shadow-sm"
               >
                 {item}
               </a>
