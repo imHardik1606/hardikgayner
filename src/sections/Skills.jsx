@@ -33,7 +33,11 @@ export default function Skills() {
                         width={40}
                         height={40}
                         alt={skill.name}
-                        className="sm:w-12 sm:h-12 opacity-90 group-hover:opacity-100 transition-opacity duration-300 dark:invert-[0.1]"
+                        className={`sm:w-12 sm:h-12 opacity-90 group-hover:opacity-100 transition-opacity duration-300 ${
+                          ["Next.js", "Express.js", "GitHub", "Vercel", "Render.com"].includes(skill.name) 
+                            ? "dark:invert dark:brightness-200" 
+                            : ""
+                        }`}
                       />
                     </div>
                     <span className="font-bold text-muted-foreground mt-2 sm:mt-3 text-center tracking-wide group-hover:text-primary transition-colors duration-300 font-sans text-xs sm:text-sm">

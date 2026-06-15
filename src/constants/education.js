@@ -31,7 +31,7 @@ export const education = [
     year: "2023 - 2026 (Expected)",
     institution: "G.H. Raisoni College Of Arts, Commerce & Science",
     degree: "Bachelor of Computer Application (BCA)",
-    grade: "CGPA: 9.11",
+    grade: "CGPA: 9.3",
   },
   {
     id: 2,
