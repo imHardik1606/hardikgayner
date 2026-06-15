@@ -2,32 +2,32 @@
 export const projects = [
   {
     id: 1,
-    name: "LeetGuide — Performance Analytics Platform",
+    name: "DispatchOS — AI Voice Dispatcher for Freight Logistics",
     description:
-      "A performance analytics platform that provides fast, structured query access to user analytics and insights. Improved query response times, added robust error handling, and applied caching and rate-limiting to make the API layer more reliable and scalable.",
-    techStack: ["React.js", "Express.js", "GraphQL", "Gemini API", "JavaScript"],
-    imageUrl: "/assets/leetguide-ss.png",
-    github: "https://github.com/imHardik1606/LeetGuide-Frontend",
-    live: "https://leetguide-xi.vercel.app/"
+      "Headless voice agent pipeline for inbound freight logistics calls. Orchestrates Groq Whisper (speech-to-text), LLaMA 3 (reasoning), and gTTS (text-to-speech) into a full conversational loop with latency monitoring, structured error handling, and modular pipeline architecture built for production observability.",
+    techStack: ["FastAPI", "Groq Whisper", "LLaMA 3", "gTTS", "Python"],
+    imageUrl: "/assets/dispatchos-ss.png",
+    github: "https://github.com/imHardik1606/DispatchOS",
+    live: "https://dispatchos.vercel.app/"
   },
   {
     id: 2,
-    name: "TripMate — AI Travel Companion",
+    name: "FlowGen — LLM Workflow Orchestration Engine",
     description:
-      "An AI-powered travel assistant that automatically generates personalized itineraries and streamlines trip planning. Includes secure user authentication, real-time data sync, and mobile-optimized pages with fast load times and graceful handling of API downtime.",
-    techStack: ["React.js", "Firebase (Auth, Firestore)", "Google Gemini API", "Google Places API", "TypeScript"],
-    imageUrl: "/assets/tripmate-ss.png",
-    github: "https://github.com/imHardik1606/Tripmate",
-    live: "https://trip-mate-rouge.vercel.app/"
+      "Multi-step LLM transformation engine with async processing pipelines, retry logic, timeout controls, and request state tracking. Converts unstructured input into structured output through clearly defined API boundaries — built to stay stable under concurrent load.",
+    techStack: ["Next.js", "TypeScript", "Gemini API"],
+    imageUrl: "/assets/flowgen-ss.png",
+    github: "https://github.com/imHardik1606/FlowGen",
+    live: "https://flowgen.vercel.app/"
   },
   {
     id: 3,
-    name: "Library Management System (CLI)",
+    name: "MistralQnA — Embedding-Based Document QA",
     description:
-      "A command-line inventory and borrowing system for libraries with concurrency-safe operations and optimized CLI navigation. Designed for reliable handling of many transactions and multiple concurrent users while keeping command response fast.",
-    techStack: ["Python", "Command-line Interface (CLI)"],
-    imageUrl: "/assets/library-management-ss.png",
-    github: "https://github.com/imHardik1606/Library-Management-System",
-    live: ""
+      "RAG pipeline over long-form PDFs using FAISS vector similarity search to filter irrelevant context before LLM inference. Tuned chunk sizes and top-k retrieval to balance precision and latency, with structured logging and defensive error handling across retrieval and inference stages.",
+    techStack: ["Python", "Mistral SDK", "FAISS", "Streamlit"],
+    imageUrl: "/assets/mistralqna-ss.png",
+    github: "https://github.com/imHardik1606/MistralQnA",
+    live: "https://mistralqna.streamlit.app/"
   }
 ];

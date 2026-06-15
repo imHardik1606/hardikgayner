@@ -72,7 +72,7 @@ export default function Intro() {
 
             {/* Name */}
             <h1 className="text-4xl lg:text-6xl font-extrabold text-text leading-tight">
-              I'm{" "}
+              I&apos;m{" "}
               <span className="text-base underline underline-offset-4 decoration-base/40">
                 <strong>
                   {/* Hardik Gayner */}
